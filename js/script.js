@@ -4,33 +4,38 @@ const choices = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
     const computerChoice = choices[(Math.floor(Math.random() * choices.length))];
+    console.log(computerChoice)
     return computerChoice
     
 };
 
- 
-
 function getHumanChoice() {
    const humanChoice = window.prompt("Choose rock, paper or scissors ");
-   return humanChoice.toLowerCase;
+   console.log(humanChoice);
+   return humanChoice.toLowerCase();
 };
 
 function whosWinner(humanChoice, computerChoice) {
 if (humanChoice === computerChoice) {
     return "Tie";
 } else if(
-    (humanChoice === "rock" && computerChoice === "sicssors") ||
-    (humanChoice === "sicssors" && computerChoice === "paper") ||
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "scissors" && computerChoice === "paper") ||
     (humanChoice === "paper" && computerChoice === "rock")
 ){
-    return "Player"
- } else {
-    return "Computer"
+    humanScore++
+    return "Player";
+} else {
+    computerScore++
+    return "Computer";
 }
 };
 
-function playRound(humanChoice, computerChoice) {
-    const result = whosWinner(humanChoice, computerChoice);
+   
+function playRound() {
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+    const result = whosWinner(humanChoice, computerChoice)
     if (result === "Tie") {
         return "It's a Tie!"
     } else if (result === "Player") {
@@ -38,9 +43,21 @@ function playRound(humanChoice, computerChoice) {
     } else {
         return "Sorry, computer won!"
     }
-}
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
+    }
 
-console.log(playRound(humanChoice,computerChoice))
+    function playGame() {
+        for (let i = 1; i <= 5; i++) {
+            const gameResult = playRound();
+            if (gameResult === "Player") {
+                humanScore++;
+            } else if (gameResult === "Computer") {
+                computerScore++;
+            }
+            console.log(`Round ${i}: ${gameResult}`);
+        }
+        console.log(`Final Score: Player ${humanScore} - Computer ${computerScore}`);
+    }
+    
+    playGame();
+
 

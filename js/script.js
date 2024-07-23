@@ -44,20 +44,11 @@ function playRound() {
         return "Sorry, computer won!"
     }
     }
-
-    function playGame() {
-        for (let i = 1; i <= 5; i++) {
-            const gameResult = playRound();
-            if (gameResult === "Player") {
-                humanScore++;
-            } else if (gameResult === "Computer") {
-                computerScore++;
-            }
-            console.log(`Round ${i}: ${gameResult}`);
-        }
-        console.log(`Final Score: Player ${humanScore} - Computer ${computerScore}`);
-    }
     
-    playGame();
+    const rockBtn = document.createElement('button');
+    const scissorsBtn = document.createElement('button');
+    const paperBtn = document.createElement('button');
+
+
 
 

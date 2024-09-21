@@ -10,17 +10,24 @@ function getComputerChoice() {
     return computerChoice;
 };
 
+function getPlayerChoice() {
+  const playerChoiceBtn = document.querySelectorAll('button');
+  playerChoiceBtn.forEach((button) => {
+    button.addEventListener('click', () => {
+      playGame(button.id)
+    });
+  });
+};
 
-
-function playGame(humanChoice, computerChoice) {
+function playGame(playerChoice) {
     const computerChoice = getComputerChoice()
     let result = ''
-    if (humanChoice === computerChoice) {
+    if (playerChoice === computerChoice) {
       result = "It's a Tie!";
     } else if (
-      (humanChoice === "rock" && computerChoice === "scissors") ||
-      (humanChoice === "scissors" && computerChoice === "paper") ||
-      (humanChoice === "paper" && computerChoice === "rock")
+      (playerChoice === "rock" && computerChoice === "scissors") ||
+      (playerChoice === "scissors" && computerChoice === "paper") ||
+      (playerChoice === "paper" && computerChoice === "rock")
     ) {
       humanScore++;
       result = "Congratulations, you won!";

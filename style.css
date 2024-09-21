@@ -1,0 +1,35 @@
+body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+   
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 250px;
+    border: gainsboro solid, 1px;
+    align-items: center;
+    box-shadow: 5px 5px 5px;
+    border-radius: 10px;
+
+} 
+
+#scores {
+    margin-top: 30px;
+    
+}
+
+button {
+    border: none;
+    margin: 10px;
+    border-radius: 5px;
+   
+    cursor: pointer;
+    box-shadow: 5px 5px 5px;
+    
+
+}

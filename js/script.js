@@ -1,4 +1,4 @@
-let humanScore = 0;
+let playerScore = 0;
 let computerScore = 0;
 const CHOICES = ["rock", "paper", "scissors"];
 
@@ -6,7 +6,6 @@ const CHOICES = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
     const computerChoice = CHOICES[(Math.floor(Math.random() * CHOICES.length))];
-    console.log(computerChoice)
     return computerChoice;
 };
 
@@ -20,8 +19,12 @@ function getPlayerChoice() {
 };
 
 function playGame(playerChoice) {
-    const computerChoice = getComputerChoice()
+    const computerChoice = getComputerChoice();
+    const computerChoiceDisplay = document.getElementById('computerChoiceDisplay');
+    const playerChoiceDisplay = document.getElementById('playerChoiceDisplay');
+    const outcomeDisplay = document.getElementById('outcomeDisplay')
     let result = ''
+    
     if (playerChoice === computerChoice) {
       result = "It's a Tie!";
     } else if (
@@ -29,12 +32,15 @@ function playGame(playerChoice) {
       (playerChoice === "scissors" && computerChoice === "paper") ||
       (playerChoice === "paper" && computerChoice === "rock")
     ) {
-      humanScore++;
+      playerScore++;
       result = "Congratulations, you won!";
     } else {
       computerScore++;
       result = "Sorry, computer won!";
     }
-  
-};
- 
+
+    playerChoiceDisplay.innerText = `Player: ${playerChoice}`;
+    computerChoiceDisplay.innerText = `Computer: ${computerChoice}`;
+    outcomeDisplay.innerText = result;
+  };
+getPlayerChoice();

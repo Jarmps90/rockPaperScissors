@@ -1,54 +1,33 @@
 let humanScore = 0;
 let computerScore = 0;
-const choices = ["rock", "paper", "scissors"];
+const CHOICES = ["rock", "paper", "scissors"];
+
+
 
 function getComputerChoice() {
-    const computerChoice = choices[(Math.floor(Math.random() * choices.length))];
+    const computerChoice = CHOICES[(Math.floor(Math.random() * CHOICES.length))];
     console.log(computerChoice)
-    return computerChoice
-    
+    return computerChoice;
 };
 
-function getHumanChoice() {
-   const humanChoice = window.prompt("Choose rock, paper or scissors ");
-   console.log(humanChoice);
-   return humanChoice.toLowerCase();
-};
 
-function whosWinner(humanChoice, computerChoice) {
-if (humanChoice === computerChoice) {
-    return "Tie";
-} else if(
-    (humanChoice === "rock" && computerChoice === "scissors") ||
-    (humanChoice === "scissors" && computerChoice === "paper") ||
-    (humanChoice === "paper" && computerChoice === "rock")
-){
-    humanScore++
-    return "Player";
-} else {
-    computerScore++
-    return "Computer";
-}
-};
 
-   
-function playRound() {
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
-    const result = whosWinner(humanChoice, computerChoice)
-    if (result === "Tie") {
-        return "It's a Tie!"
-    } else if (result === "Player") {
-        return "Congratulations, you won!"
+function playGame(humanChoice, computerChoice) {
+    const computerChoice = getComputerChoice()
+    let result = ''
+    if (humanChoice === computerChoice) {
+      result = "It's a Tie!";
+    } else if (
+      (humanChoice === "rock" && computerChoice === "scissors") ||
+      (humanChoice === "scissors" && computerChoice === "paper") ||
+      (humanChoice === "paper" && computerChoice === "rock")
+    ) {
+      humanScore++;
+      result = "Congratulations, you won!";
     } else {
-        return "Sorry, computer won!"
+      computerScore++;
+      result = "Sorry, computer won!";
     }
-    }
-    
-    const rockBtn = document.createElement('button');
-    const scissorsBtn = document.createElement('button');
-    const paperBtn = document.createElement('button');
-
-
-
-
+  
+};
+ 

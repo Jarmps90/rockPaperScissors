@@ -45,9 +45,10 @@ function playGame(playerChoice) {
       computerScoreDisplay.textContent = `Computer score: ${computerScore}`
       
     }
-    playerChoiceDisplay.innerText = `Player: ${playerChoice}`;
-    computerChoiceDisplay.innerText = `Computer: ${computerChoice}`;
+    playerChoiceDisplay.innerText = `Player: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}`;
+    computerChoiceDisplay.innerText = `Computer: ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
     outcomeDisplay.innerText = result;
+    
 
     if (result === "Congratulations, you won!") {
       outcomeDisplay.style.color = 'green';

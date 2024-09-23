@@ -22,7 +22,10 @@ function playGame(playerChoice) {
     const computerChoice = getComputerChoice();
     const computerChoiceDisplay = document.getElementById('computerChoiceDisplay');
     const playerChoiceDisplay = document.getElementById('playerChoiceDisplay');
-    const outcomeDisplay = document.getElementById('outcomeDisplay')
+    const outcomeDisplay = document.getElementById('outcomeDisplay');
+    const playerScoreDisplay = document.getElementById('playerScore');
+    const computerScoreDisplay = document.getElementById('computerScore');
+    
     let result = ''
     
     if (playerChoice === computerChoice) {
@@ -32,11 +35,15 @@ function playGame(playerChoice) {
       (playerChoice === "scissors" && computerChoice === "paper") ||
       (playerChoice === "paper" && computerChoice === "rock")
     ) {
-      playerScore++;
       result = "Congratulations, you won!";
+      playerScore++;
+      playerScoreDisplay.textContent = `Player score: ${playerScore} `;
+      
     } else {
-      computerScore++;
       result = "Sorry, computer won!";
+      computerScore++;
+      computerScoreDisplay.textContent = `Computer score: ${computerScore}`
+      
     }
 
     playerChoiceDisplay.innerText = `Player: ${playerChoice}`;

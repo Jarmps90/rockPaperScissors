@@ -3,6 +3,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
     
 }
 
@@ -16,8 +18,8 @@ body {
     align-items: center;
     box-shadow: 5px 5px 5px;
     border-radius: 10px;
-    
-    
+    padding: 20px;
+
 } 
 
 
@@ -28,17 +30,33 @@ button {
     border: none;
     margin: 10px;
     border-radius: 5px;
-   
     cursor: pointer;
     box-shadow: 5px 5px 5px;
+    
 }
 
 .choiceDisplays {
+    width: 300px;
+    height: 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    gap:10px;
-    border: 1px, red, solid;
+    align-items: center;
     text-align: justify;
+    font-size: 18px;
+
 
 }
+
+#outcomeDisplay {
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+
+}
+
+#computerScore, #playerScore {
+    height: 10px;
+}
+
